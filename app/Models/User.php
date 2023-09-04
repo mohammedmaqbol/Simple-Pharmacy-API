@@ -21,7 +21,20 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'national_id',
+        'avatar',
+        'phone',
+        'address',
+        'role',
+        'supervisor_id',
     ];
+
+    public function supervisor()
+    {
+        return $this->belongsTo(User::class, 'supervisor_id');
+    }
+
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -42,4 +55,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
 }
